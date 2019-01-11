@@ -19,6 +19,8 @@
 /** Testing utils for spark structured streaming runner. */
 package org.apache.beam.runners.spark.structuredstreaming.utils;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
@@ -28,9 +30,9 @@ import java.util.List;
 
 public class SerializationDebugger {
 
-  public static void testSerialization(Object object) throws IOException {
+  public static void testSerialization(Object object, File to) throws IOException {
     DebuggingObjectOutputStream out =
-        new DebuggingObjectOutputStream();
+        new DebuggingObjectOutputStream(new FileOutputStream(to));
     try {
       out.writeObject(object);
     } catch (Exception e) {
@@ -42,8 +44,6 @@ public class SerializationDebugger {
 
   private static class DebuggingObjectOutputStream extends ObjectOutputStream {
 
-    public DebuggingObjectOutputStream() throws IOException, SecurityException {
-    }
 
     private static final Field DEPTH_FIELD;
 
@@ -56,7 +56,7 @@ public class SerializationDebugger {
       }
     }
 
-    final List<Object> stack = new ArrayList<Object>();
+    final List<Object> stack = new ArrayList<>();
 
     /**
      * Indicates whether or not OOS has tried to
@@ -75,6 +75,7 @@ public class SerializationDebugger {
      * Abuse {@code replaceObject()} as a hook to
      * maintain our stack.
      */
+    @Override
     protected Object replaceObject(Object o) {
       // ObjectOutputStream writes serialization
       // exceptions to the stream. Ignore
