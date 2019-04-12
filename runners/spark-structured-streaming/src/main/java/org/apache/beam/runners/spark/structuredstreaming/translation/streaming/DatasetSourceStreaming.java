@@ -21,6 +21,7 @@ import static com.google.common.base.Preconditions.checkArgument;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -50,7 +51,8 @@ import org.apache.spark.sql.types.StructType;
  * is tagged experimental in spark (no aggregation support + no exactly once guaranty), this class
  * does no implement {@link ContinuousReadSupport}.
  */
-public class DatasetSourceStreaming implements DataSourceV2, MicroBatchReadSupport {
+@SuppressFBWarnings("SE_BAD_FIELD") // make spotbugs happy
+class DatasetSourceStreaming implements DataSourceV2, MicroBatchReadSupport {
 
   static final String BEAM_SOURCE_OPTION = "beam-source";
   static final String DEFAULT_PARALLELISM = "default-parallelism";
@@ -105,7 +107,7 @@ public class DatasetSourceStreaming implements DataSourceV2, MicroBatchReadSuppo
       endOffset = (SourceOffset) end.orElse(new SourceOffset(-1L));
       if (start.isPresent() && end.isPresent()) {
         offsetRange = endOffset.get() - startOffset.get();
-        nbOffsetsPerReader =  (long) Math.ceil((float) (offsetRange / numPartitions));
+        nbOffsetsPerReader = (long) Math.ceil(offsetRange / (float) numPartitions);
       }
     }
 
