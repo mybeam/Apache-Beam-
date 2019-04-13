@@ -26,7 +26,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.beam.runners.spark.structuredstreaming.SparkPipelineOptions;
-import org.apache.beam.runners.spark.structuredstreaming.SparkRunner;
+import org.apache.beam.runners.spark.structuredstreaming.SparkStructuredStreamingRunner;
 import org.apache.beam.sdk.Pipeline;
 import org.apache.beam.sdk.io.TextIO;
 import org.apache.beam.sdk.options.PipelineOptions;
@@ -49,7 +49,7 @@ public class ComplexSourceTest implements Serializable {
   @BeforeClass
   public static void beforeClass() throws IOException {
     PipelineOptions options = PipelineOptionsFactory.create().as(SparkPipelineOptions.class);
-    options.setRunner(SparkRunner.class);
+    options.setRunner(SparkStructuredStreamingRunner.class);
     pipeline = Pipeline.create(options);
     file = TEMPORARY_FOLDER.newFile();
     OutputStream outputStream = new FileOutputStream(file);

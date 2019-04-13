@@ -26,7 +26,7 @@ import org.apache.beam.sdk.runners.PipelineRunnerRegistrar;
 
 /**
  * Contains the {@link PipelineRunnerRegistrar} and {@link PipelineOptionsRegistrar} for the {@link
- * SparkRunner}.
+ * SparkStructuredStreamingRunner}.
  *
  * <p>{@link AutoService} will register Spark's implementations of the {@link PipelineRunner} and
  * {@link PipelineOptions} as available pipeline runner services.
@@ -34,12 +34,12 @@ import org.apache.beam.sdk.runners.PipelineRunnerRegistrar;
 public final class SparkRunnerRegistrar {
   private SparkRunnerRegistrar() {}
 
-  /** Registers the {@link SparkRunner}. */
+  /** Registers the {@link SparkStructuredStreamingRunner}. */
   @AutoService(PipelineRunnerRegistrar.class)
   public static class Runner implements PipelineRunnerRegistrar {
     @Override
     public Iterable<Class<? extends PipelineRunner<?>>> getPipelineRunners() {
-      return ImmutableList.of(SparkRunner.class);
+      return ImmutableList.of(SparkStructuredStreamingRunner.class);
     }
   }
 
