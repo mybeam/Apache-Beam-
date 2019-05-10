@@ -207,8 +207,6 @@ task validatesStructuredStreamingRunnerBatch(type: Test) {
     // Portability
     excludeCategories 'org.apache.beam.sdk.testing.UsesImpulse'
     excludeCategories 'org.apache.beam.sdk.testing.UsesCrossLanguageTransforms'
-    // Schema
-    excludeCategories 'org.apache.beam.sdk.testing.UsesSchema'
   }
 }
 
