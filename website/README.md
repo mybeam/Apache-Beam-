@@ -22,53 +22,44 @@ https://beam.apache.org/.
 
 ## About this site
 
-The Beam website is built using [Jekyll](http://jekyllrb.com/). Additionally,
-for additional formatting capabilities, this website uses
-[Twitter Bootstrap](http://getbootstrap.com/).
-
-Documentation generated from source code, such as Javadoc and Pydoc, is stored
-separately on the [beam-site
-repository](https://github.com/apache/beam-site/tree/release-docs).
+此处为翻译的中文社区官方文档
 
 ## Active development
 
-Website development requires Docker installed if you wish to preview changes and
-run website tests.
+如果您希望预览更改，网站开发需要安装Docker
+运行网站测试。
 
-The following command is used to build and serve the website locally.
+以下命令用于在本地构建和提供网站。
 
     $ ./gradlew :website:serveWebsite
 
-Any changes made locally will trigger a rebuild of the website.
+在本地进行的任何更改都将触发网站的重建。
 
-Websites tests may be run using this command:
+可以使用以下命令运行网站测试：
 
     $ ./gradlew :website:testWebsite
 
 ## Website push
+合并PR后，后台Jenkins作业将自动生成和
 
-After a PR is merged, a background Jenkins job will automatically generate and
-push [website
-content](https://github.com/apache/beam/tree/asf-site/website/generated-content)
-to the asf-site branch. This content is later picked up and pushed to
-https://beam.apache.org/.
-
+推[网站
+内容]（https://github.com/apache/beam/tree/asf-site/website/generated-content）
+到asf-site分支。 此内容稍后被选中并推送到
+https://beam.apache.org/。
 ## Additional Information
 
 ### Writing blog posts
+博客文章在`_posts`目录中创建。
 
-Blog posts are created in the `_posts` directory.
+如果这是您的第一篇文章，请务必将自己添加到`_data \ authors.yml`。
 
-If this is your first post, make sure to add yourself to `_data\authors.yml`.
-
-While you a working on your post before the publishing time listed in its header,
-add `--future` when running Jekyll in order to view your draft on your local copy of
-the site.
+当您在其标题中列出的发布时间之前处理您的帖子时，
+运行Jekyll时添加`--future`以便在本地副本上查看草稿
+网站。
 
 ### Adding Jekyll plugins
 
-If you modify the site to use additional Jekyll plugins, add them in `Gemfile`
-and then run `bundle update`, which will regenerate the complete `Gemfile.lock`.
-Make sure that the updated `Gemfile.lock` is included in your pull request. For more information,
-see the Bundler [documentation](http://bundler.io/v1.3/rationale.html).
-
+如果您修改站点以使用其他Jekyll插件，请将它们添加到`Gemfile`中
+然后运行`bundle update`，它将重新生成完整的`Gemfile.lock`。
+确保更新的`Gemfile.lock`包含在pull请求中。 欲获得更多信息，
+请参阅Bundler [文档]（http://bundler.io/v1.3/rationale.html）。
