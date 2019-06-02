@@ -97,6 +97,14 @@ Then please use the standard `./gradlew build` command.
 ## Contact Us
 
 To get involved in Apache Beam:
+We also have a [contributor's guide](https://beam.apache.org/contribute/contribution-guide/).
+
+## More Information
+
+* [Apache Beam](http://beam.apache.org)
+* [Overview](http://beam.apache.org/use/beam-overview/)
+* Quickstart: [Java](
+* [Community metrics](https://s.apache.org/beam-community-metrics)
 
 * [Subscribe](mailto:user-subscribe@beam.apache.org) or [mail](mailto:user@beam.apache.org) the [user@beam.apache.org](http://mail-archives.apache.org/mod_mbox/beam-user/) list.
 * [Subscribe](mailto:dev-subscribe@beam.apache.org) or [mail](mailto:dev@beam.apache.org) the [dev@beam.apache.org](http://mail-archives.apache.org/mod_mbox/beam-dev/) list.
@@ -105,8 +113,3 @@ To get involved in Apache Beam:
 We also have a [contributor's guide](https://beam.apache.org/contribute/contribution-guide/).
 
 ## More Information
-
-* [Apache Beam](http://beam.apache.org)
-* [Overview](http://beam.apache.org/use/beam-overview/)
-* Quickstart: [Java](https://beam.apache.org/get-started/quickstart-java), [Python](https://beam.apache.org/get-started/quickstart-py), [Go](https://beam.apache.org/get-started/quickstart-go)
-* [Community metrics](https://s.apache.org/beam-community-metrics)
